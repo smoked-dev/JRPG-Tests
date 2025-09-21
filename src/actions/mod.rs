@@ -2,6 +2,7 @@ use bevy::math::Vec3Swizzles;
 use bevy::prelude::*;
 
 use crate::actions::game_control::{get_movement, GameControl};
+use crate::GameSet;
 use crate::player::Player;
 use crate::GameState;
 
@@ -16,8 +17,10 @@ pub struct ActionsPlugin;
 impl Plugin for ActionsPlugin {
     fn build(&self, app: &mut App) {
         app.init_resource::<Actions>().add_systems(
-            Update,
-            set_movement_actions.run_if(in_state(GameState::Playing)),
+            PreUpdate,
+            set_movement_actions
+                .in_set(GameSet::InputRead)
+                .run_if(in_state(GameState::Playing)),
         );
     }
 }

@@ -34,4 +34,11 @@ pub struct TextureAssets {
     pub bevy: Handle<Image>,
     #[asset(path = "textures/github.png")]
     pub github: Handle<Image>,
+    // VFX sprites brought over from DDclone
+    #[asset(path = "textures/smallstar.png")]
+    pub smallstar: Handle<Image>,
+    #[asset(path = "textures/star_empty.png")]
+    pub hollowstar: Handle<Image>,
+    #[asset(path = "textures/y2kstar.png")]
+    pub y2k_star: Handle<Image>,
 }
